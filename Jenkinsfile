@@ -39,7 +39,7 @@ pipeline {
 	xcodeProjectPath: 'PipelineiOSTest', 
 	xcodeSchema: 'PipelineiOSTest', 
 	xcodeWorkspaceFile: '', 
-	xcodebuildArguments: 'test /usr/local/bin/ocunit2junit'
+	xcodebuildArguments: 'build -destination \'platform=iOS Simulator,OS=13.3,name=iPhone 11 Pro Max\' /usr/local/bin/ocunit2junit'
 }
                    } 
    stage('Archive') {
