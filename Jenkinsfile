@@ -21,7 +21,7 @@ pipeline {
 	displayImageURL: '', 
 	fullSizeImageURL: '', 
 	ipaExportMethod: 'development',
- 	ipaName:  '${BUILD_DATE}_${VERSION}', 
+ 	ipaName:  '${BUILD_DATE}_${BUILD_TIME}_${VERSION}', 
 	ipaOutputDirectory: '', 
 	keychainId: '', 
 	keychainPath: '${HOME}/Library/Keychains/login.keychain', 
@@ -46,8 +46,6 @@ post {
 
           always { 
 echo 'Hi'
-echo "TimeStamp: ${currentBuild.startTimeInMillis}"
-echo "TimeStamp: ${Util.getTimeSpanString(System.currentTimeMillis())}"
 
 //sh 'ln -s test-results-unit.xml $WORKSPACE'
 //junit allowEmptyResults: true, testResults: '**/test-results/*.xml'
