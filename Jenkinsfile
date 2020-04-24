@@ -46,6 +46,9 @@ post {
 
           always { 
 echo 'Hi'
+echo "TimeStamp: ${currentBuild.startTimeInMillis}"
+echo "TimeStamp: ${Util.getTimeSpanString(System.currentTimeMillis())}"
+
 //sh 'ln -s test-results-unit.xml $WORKSPACE'
 //junit allowEmptyResults: true, testResults: '**/test-results/*.xml'
 //archiveArtifacts artifacts: '**/*.ipa', fingerprint: true
