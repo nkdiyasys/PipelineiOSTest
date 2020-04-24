@@ -1,10 +1,10 @@
 
 pipeline {
 	agent any
-
-stages {
-stage('Build') {
-xcodeBuild appURL: '', 
+		stages {
+			stage('Build') {
+				steps {
+				xcodeBuild appURL: '', 
 	assetPackManifestURL: '', 
 	buildDir: '', 
 	buildIpa: true,
@@ -39,7 +39,7 @@ xcodeBuild appURL: '',
 	xcodeSchema: 'PipelineiOSTest', 
 	xcodeWorkspaceFile: '', 
 	xcodebuildArguments: 'build -destination \'platform=iOS Simulator,OS=13.3,name=iPhone 11 Pro Max\''
-
+}
 }
 }
 		stages {
