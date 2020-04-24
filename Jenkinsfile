@@ -21,7 +21,7 @@ pipeline {
 	displayImageURL: '', 
 	fullSizeImageURL: '', 
 	ipaExportMethod: 'development',
- 	ipaName:  '${VERSION}_${BUILD_DATE}', 
+ 	ipaName:  'PipelineiOSTest', 
 	ipaOutputDirectory: '', 
 	keychainId: '', 
 	keychainPath: '${HOME}/Library/Keychains/login.keychain', 
