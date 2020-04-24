@@ -4,6 +4,7 @@ pipeline {
 		stages {
 			
  stage('Checkout/Build/Test') {
+				steps {
 
         // Checkout files.
         checkout([
@@ -23,9 +24,10 @@ pipeline {
         // Publish test restults.
         step([$class: 'JUnitResultArchiver', allowEmptyResults: true, testResults: 'build/reports/junit.xml'])
     }
-
+}
     stage('Analytics') {
-        
+        				steps {
+
         parallel Coverage: {
             // Generate Code Coverage report
             sh '/usr/local/bin/slather coverage --jenkins --html  --project PipelineiOSTest/PipelineiOSTest.xcodeproj--scheme PipelineiOSTest PipelineiOSTest.xcodeproj/'
@@ -43,11 +45,14 @@ pipeline {
             step([$class: 'CheckStylePublisher', canComputeNew: false, defaultEncoding: '', healthy: '', pattern: 'checkstyle.xml', unHealthy: ''])
         }, failFast: true|false   
     }
+}
+				steps {
 
     stage ('Notify') {
         // Send slack notification
         slackSend channel: '#my-team', message: 'PipelineiOSTest - Successfully', teamDomain: 'my-team', token: 'my-token'
     }
+}
                    } 
 
 }
