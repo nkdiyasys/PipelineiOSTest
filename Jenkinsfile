@@ -57,7 +57,7 @@ post {
           always { 
 echo 'Hi'
 
-//archiveArtifacts artifacts: '**/*.ipa', fingerprint: true
+	archiveArtifacts artifacts: '**/*.ipa', fingerprint: true
             junit 'test-reports/*.xml'
          } 
          success { 
