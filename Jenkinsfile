@@ -21,7 +21,7 @@ pipeline {
 	displayImageURL: '', 
 	fullSizeImageURL: '', 
 	ipaExportMethod: 'development',
- 	ipaName:  '${BUILD_DATE}_${BUILD_TIME}_${VERSION}', 
+ 	ipaName:  '${BUILD_DATE}_${VERSION}', 
 	ipaOutputDirectory: '', 
 	keychainId: '', 
 	keychainPath: '${HOME}/Library/Keychains/login.keychain', 
@@ -41,12 +41,16 @@ pipeline {
 	xcodebuildArguments: 'test -destination \'platform=iOS Simulator,OS=13.3,name=iPhone 11 Pro Max\''
 }
                    } 
+   stage('Archive') {
+            steps {
+                archiveArtifacts 'PipelineiOSTest/build/development-iphoneos/*.ipa'
+            }
+}
      } 
 post {
 
           always { 
 echo 'Hi'
-
 //sh 'ln -s test-results-unit.xml $WORKSPACE'
 //junit allowEmptyResults: true, testResults: '**/test-results/*.xml'
 //archiveArtifacts artifacts: '**/*.ipa', fingerprint: true
