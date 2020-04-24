@@ -2,7 +2,7 @@
 pipeline {
 	agent any
 		stages {
-			stage('Build') {
+    stage('Checkout/Build/Test') {
 
 				steps {
 	  // Checkout files.
@@ -24,6 +24,13 @@ pipeline {
         step([$class: 'JUnitResultArchiver', allowEmptyResults: true, testResults: 'build/reports/junit.xml'])
 }
                    } 
+
+
+  stage ('Notify') {
+        // Send slack notification
+        slackSend channel: '#my-team', message: 'Time Table - Successfully', teamDomain: 'my-team', token: 'my-token'
+    }
+
        } 
 
 }
