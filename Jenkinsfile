@@ -43,13 +43,38 @@ pipeline {
                 }
             stage('Test') {
                 steps {
-                    sh 'xcodebuild -project PipelineiOSTest/PipelineiOSTest.xcodeproj -scheme "PipelineiOSTest" -configuration "Debug" build test -destination "platform=iOS Simulator,name=iPhone 11 Pro Max,OS=13.3" -enableCodeCoverage YES clean test | /usr/local/bin/xcpretty'
+                    sh 'xcodebuild -project PipelineiOSTest/PipelineiOSTest.xcodeproj -scheme "PipelineiOSTest" -configuration "Debug" build test -destination "platform=iOS Simulator,name=iPhone 11 Pro Max,OS=13.3" -enableCodeCoverage YES clean test | /usr/local/bin/ocunit2junit'
                 }
         }
         stage('Upload') {
             steps {
                 echo 'upload'
-              
+                // /path/to/altool --upload-app -f "path/to/file.ipa" -u %USERNAME% -p %PASSWORD%
+                  exportIpa appURL: '',
+                            archiveDir: '',
+                            assetPackManifestURL: '',
+                            compileBitcode: false,
+                            developmentTeamID: '',
+                            developmentTeamName: 'Tregaron India Holdings, LLC',
+                            displayImageURL: '',
+                            fullSizeImageURL: '',
+                            ipaExportMethod: 'app-store',
+                            ipaName: '${BUILD_DATE}_${VERSION}',
+                            ipaOutputDirectory: '',
+                            keychainName: '',
+                            keychainPath:  '${HOME}/Library/Keychains/login.keychain',
+                        keychainPwd: hudson.util.Secret.fromString(''),
+                            packResourcesAsset: true,
+                            provisioningProfiles: [[provisioningProfileAppId: 'com.lockdown.app',                 provisioningProfileUUID: '4e3f3e97-d9d0-465e-9340-de6a3e0acc30']],
+                            resourcesAssetURL: '',
+                            signingMethod: 'manual',
+                            thinning: '',
+                            unlockKeychain: false,
+                            uploadBitcode: false,
+                            uploadSymbols: false,
+                            xcodeProjectPath: 'PipelineiOSTest',
+                            xcodeSchema: 'PipelineiOSTest',
+                            xcodeWorkspaceFile: ''
             }
         }
                    }
