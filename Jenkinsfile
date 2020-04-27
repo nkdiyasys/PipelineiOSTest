@@ -58,7 +58,7 @@ pipeline {
                             developmentTeamName: 'Tregaron India Holdings, LLC',
                             displayImageURL: '',
                             fullSizeImageURL: '',
-                            ipaExportMethod: 'Release',
+                            ipaExportMethod: 'app-store',
                             ipaName: '${BUILD_DATE}_${VERSION}',
                             ipaOutputDirectory: '',
                             keychainName: '',
