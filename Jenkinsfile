@@ -53,8 +53,6 @@ echo 'upload'
 xcodebuild -exportArchive -archivePath **/PipelineiOSTest.xcarchive \
 -exportOptionsPlist **/*xportOptions.plist \
 -exportPath /Users/nithinkumar/Desktop/NK/
-
-
 }
 }
                    } 
