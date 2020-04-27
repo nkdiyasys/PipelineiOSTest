@@ -72,8 +72,8 @@ pipeline {
                             unlockKeychain: false,
                             uploadBitcode: false,
                             uploadSymbols: false,
-                            xcodeProjectPath: 'iOSPipeline',
-                            xcodeSchema: 'iOSPipeline',
+                            xcodeProjectPath: 'PipelineiOSTest',
+                            xcodeSchema: 'PipelineiOSTest',
                             xcodeWorkspaceFile: ''
             }
         }
