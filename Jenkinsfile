@@ -49,7 +49,7 @@ pipeline {
 stage('Upload') {
 steps {
 echo 'upload'
-xcodebuild -exportArchive -archivePath  **/build/development-iphoneos/*.xcarchive  -exportPath   workspace/iPaa -exportOptionsPlist  **/build/development-iphoneos/ExportOptions.plist
+xcodebuild -exportArchive -archivePath  **/*.xcarchive  -exportPath  IPABUILD/  -exportOptionsPlist  **/*.plist
 
 }
 }
@@ -57,6 +57,8 @@ xcodebuild -exportArchive -archivePath  **/build/development-iphoneos/*.xcarchiv
 post {
           always { 
 		echo 'Hi'
+		archiveArtifacts artifacts: '**/*.ipa', fingerprint: true
+           	 junit 'test-reports/*.xml'
        			  } 
          success { 
   		mail bcc: '', body: "<b>Details</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "SUCCESS CI: Project name -> ${env.JOB_NAME}", to: "nkdiyasys@gmail.com";
