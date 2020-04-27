@@ -49,7 +49,9 @@ pipeline {
 stage('Upload') {
 steps {
 echo 'upload'
-xcrun xcodebuild -exportArchive -exportPath ${WORKSPACE} -archivePath build/PipelineiOSTest.xcarchive/
+// /path/to/altool --upload-app -f "path/to/file.ipa" -u %USERNAME% -p %PASSWORD%
+
+
 
 }
 }
