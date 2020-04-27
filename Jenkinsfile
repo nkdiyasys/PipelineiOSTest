@@ -51,7 +51,7 @@ steps {
 echo 'upload'
 // /path/to/altool --upload-app -f "path/to/file.ipa" -u %USERNAME% -p %PASSWORD%
 xcodebuild -exportArchive -archivePath **/PipelineiOSTest.xcarchive \
--exportOptionsPlist **/ExportOptions.plist \
+-exportOptionsPlist **/*xportOptions.plist \
 -exportPath /Users/nithinkumar/Desktop/NK/ -UseModernBuildSystem=YES
 
 
