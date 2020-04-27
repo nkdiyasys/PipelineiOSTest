@@ -49,7 +49,7 @@ pipeline {
 stage('Upload') {
 steps {
 echo 'upload'
-xcrun xcodebuild -exportArchive -exportPath ${WORKSPACE}/build/ -archivePath build/PipelineiOSTest.xcarchive/
+xcrun xcodebuild -exportArchive -exportPath ${WORKSPACE} -archivePath build/PipelineiOSTest.xcarchive/
 
 }
 }
