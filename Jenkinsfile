@@ -7,7 +7,7 @@ pipeline {
 					xcodeBuild appURL: '', 
 					assetPackManifestURL: '', 
 					buildDir: '', 
-					buildIpa: false,
+					buildIpa: true,
 					 bundleID: '', 
 					bundleIDInfoPlistPath: '', 
 					cfBundleShortVersionStringValue: '', 
