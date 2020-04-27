@@ -49,7 +49,7 @@ pipeline {
 stage('Upload') {
 steps {
 echo 'upload'
-xcodebuild -exportArchive -archivePath  **/*.xcarchive  -exportPath  IPABUILD/  -exportOptionsPlist  **/ExportOptions.plist
+xcodebuild -exportArchive -archivePath  **/*.xcarchive  -exportPath **/build/exportipa/  -exportOptionsPlist  **/ExportOptions.plist
 
 }
 }
