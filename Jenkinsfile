@@ -50,7 +50,7 @@ pipeline {
             steps {
                 echo 'upload'
                 // /path/to/altool --upload-app -f "path/to/file.ipa" -u %USERNAME% -p %PASSWORD%
-                xcrun altool --upload-app --type ios --file "/Users/nithinkumar/Desktop/2020.04.29_1.ipa" --username "rajendrarao" --password "Coolraja1978@1"
+                xcrun altool --upload-app --type ios --file "/Users/nithinkumar/Desktop/2020.04.29_1.ipa" -u "rajendrarao" -p "Coolraja1978@1"
             }
         }
                    }
