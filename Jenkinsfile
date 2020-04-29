@@ -20,7 +20,7 @@ pipeline {
                     developmentTeamName: 'Tregaron India Holdings, LLC',
                     displayImageURL: '',
                     fullSizeImageURL: '',
-                    ipaExportMethod: 'enterprise',
+                    ipaExportMethod: 'development',
                      ipaName:  '${BUILD_DATE}_${VERSION}',
                     ipaOutputDirectory: '',
                     keychainId: '',
