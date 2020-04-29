@@ -12,8 +12,8 @@ pipeline {
                     bundleIDInfoPlistPath: '',
                     cfBundleShortVersionStringValue: '',
                     cfBundleVersionValue: '',
-                    cleanBeforeBuild: false,
-                    cleanResultBundlePath: false,
+                    cleanBeforeBuild: true,
+                    cleanResultBundlePath: true,
                     compileBitcode: false,
                     configuration: 'Release',
                     developmentTeamID: '',
@@ -50,31 +50,7 @@ pipeline {
             steps {
                 echo 'upload'
                 // /path/to/altool --upload-app -f "path/to/file.ipa" -u %USERNAME% -p %PASSWORD%
-                  exportIpa appURL: '',
-                            archiveDir: '',
-                            assetPackManifestURL: '',
-                            compileBitcode: false,
-                            developmentTeamID: '',
-                            developmentTeamName: 'Tregaron India Holdings, LLC',
-                            displayImageURL: '',
-                            fullSizeImageURL: '',
-                            ipaExportMethod: 'enterprise',
-                            ipaName: '${BUILD_DATE}_${VERSION}',
-                            ipaOutputDirectory: '',
-                            keychainName: '',
-                            keychainPath:  '${HOME}/Library/Keychains/login.keychain',
-                        keychainPwd: hudson.util.Secret.fromString(''),
-                            packResourcesAsset: true,
-                            provisioningProfiles: [[provisioningProfileAppId: 'com.lockdown.app',                 provisioningProfileUUID: '4e3f3e97-d9d0-465e-9340-de6a3e0acc30']],
-                            resourcesAssetURL: '',
-                            signingMethod: 'manual',
-                            thinning: '',
-                            unlockKeychain: false,
-                            uploadBitcode: false,
-                            uploadSymbols: false,
-                            xcodeProjectPath: 'PipelineiOSTest',
-                            xcodeSchema: 'PipelineiOSTest',
-                            xcodeWorkspaceFile: ''
+                xcrun altool --upload-app --type ios --file "/Users/nithinkumar/Desktop/2020.04.29_1.ipa" --username "rajendrarao" --password "Coolraja1978@1"
             }
         }
                    }
