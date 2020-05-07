@@ -4,7 +4,9 @@ pipeline {
         stages {
             stage('Build') {
                 steps {
-                    xcodeBuild appURL: '',
+                echo 'Build'
+
+                 //   xcodeBuild appURL: '',
                     assetPackManifestURL: '',
                     buildDir: '',
                     buildIpa: true,
@@ -43,13 +45,16 @@ pipeline {
                 }
             stage('Test') {
                 steps {
-                    sh 'xcodebuild -project PipelineiOSTest/PipelineiOSTest.xcodeproj -scheme "PipelineiOSTest" -configuration "Debug" build test -destination "platform=iOS Simulator,name=iPhone 11 Pro Max,OS=13.3" -enableCodeCoverage YES clean test | /usr/local/bin/ocunit2junit'
+                echo 'Test'
+
+               //     sh 'xcodebuild -project PipelineiOSTest/PipelineiOSTest.xcodeproj -scheme "PipelineiOSTest" -configuration "Debug" build test -destination "platform=iOS Simulator,name=iPhone 11 Pro Max,OS=13.3" -enableCodeCoverage YES clean test | /usr/local/bin/ocunit2junit'
                 }
         }
         stage('Export') {
             steps {
                 echo 'Export'
-                           }
+              //  xcrun altool --upload-xcodebuild -exportArchive -exportPath "/Users/nithinkumar/Desktop/NK" -exportOptionsPlist "PipelineiOSTest/PipelineiOSTest/build/Release-iphoneos/ExportOptions.plist" -archivePath "PipelineiOSTest/PipelineiOSTest/build/Release-iphoneos/PipelineiOSTest.xcarchiveapp" --type ios --file "PipelineiOSTest/PipelineiOSTest/build/Release-iphoneos/2020.04.29_1.ipa" -u "rajendrarao" -p "Coolraja1978@1"
+            }
         }
         stage('Upload') {
             steps {
