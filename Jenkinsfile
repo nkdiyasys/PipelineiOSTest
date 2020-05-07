@@ -2,6 +2,12 @@
 pipeline {
     agent any
         stages {
+            stage('Remove Derive Data') {
+                steps {
+                    rm -rf ~/Library/Developer/Xcode/DerivedData
+                    cleanWs()
+                    }
+                }
             stage('Build') {
                 steps {
                     xcodeBuild appURL: '',
@@ -49,6 +55,8 @@ pipeline {
         stage('Export') {
             steps {
                 echo 'Export'
+                cd  /Applications/Xcode\ 8.3.3/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Versions/A/Support/
+                ./altool --upload-app -f /Users/Shared/Jenkins/Home/workspace/yourWorkspace-name/build/artifacts/yourIPA.ipa -u itunesconnectUserName -p itunesconnectPassword
                
             }
         }
