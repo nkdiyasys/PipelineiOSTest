@@ -16,7 +16,7 @@ pipeline {
                                  cleanBeforeBuild: false,
                                  cleanResultBundlePath: false,
                                  compileBitcode: false,
-                                 configuration: 'Release',
+                                 configuration: 'Debug',
                                  developmentTeamID: '',
                                  developmentTeamName: 'Tregaron India Holdings, LLC',
                                  displayImageURL: '',
