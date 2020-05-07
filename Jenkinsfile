@@ -49,16 +49,10 @@ pipeline {
         stage('Export') {
             steps {
                 echo 'Export'
-                xcrun altool --upload-xcodebuild -exportArchive -exportPath "/Users/nithinkumar/Desktop/NK" -exportOptionsPlist "PipelineiOSTest/PipelineiOSTest/build/Release-iphoneos/ExportOptions.plist" -archivePath "PipelineiOSTest/PipelineiOSTest/build/Release-iphoneos/PipelineiOSTest.xcarchiveapp" --type ios --file "PipelineiOSTest/PipelineiOSTest/build/Release-iphoneos/2020.04.29_1.ipa" -u "rajendrarao" -p "Coolraja1978@1"
+               
             }
         }
-        stage('Upload') {
-            steps {
-                echo 'upload'
-                // /path/to/altool --upload-app -f "path/to/file.ipa" -u %USERNAME% -p %PASSWORD%
-               // xcrun altool --upload-app --type ios --file "/Users/nithinkumar/Desktop/2020.04.29_1.ipa" -u "rajendrarao" -p "Coolraja1978@1"
-            }
-        }
+       
                    }
 post {
           always {
