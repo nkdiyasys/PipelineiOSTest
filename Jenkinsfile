@@ -49,7 +49,7 @@ pipeline {
         stage('Export') {
             steps {
                 echo 'Export'
-           xcrun altool --upload-app -f "PipelineiOSTest/PipelineiOSTest/build/Release-iphoneos/*.ipa" -t ios -u "rajendrarao" -p "Coolraja1978@1"
+           xcrun altool --upload-app -f 'PipelineiOSTest/PipelineiOSTest/build/Release-iphoneos/*.ipa' -t ios -u 'rajendrarao' -p 'Coolraja1978@1'
             }
         }
        
