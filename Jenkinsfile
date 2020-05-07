@@ -4,7 +4,12 @@ pipeline {
         stages {
             stage('Remove Derive Data') {
                 steps {
-                    rm -rf ~/Library/Developer/Xcode/DerivedData
+                    DIR=~/Library/Developer/Xcode/DerivedData/
+                    cd $DIR
+                    ls
+                    rm -r -- "$DIR"*
+                    
+                    
                     cleanWs()
                     }
                 }
