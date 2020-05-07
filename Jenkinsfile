@@ -2,17 +2,6 @@
 pipeline {
     agent any
         stages {
-            stage('Remove Derive Data') {
-                steps {
-                    DIR=~/Library/Developer/Xcode/DerivedData/
-                    cd $DIR
-                    ls
-                    rm -r -- "$DIR"*
-                    
-                    
-                    cleanWs()
-                    }
-                }
             stage('Build') {
                 steps {
                     xcodeBuild appURL: '',
@@ -60,9 +49,7 @@ pipeline {
         stage('Export') {
             steps {
                 echo 'Export'
-                cd  /Applications/Xcode\ 8.3.3/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Versions/A/Support/
-                ./altool --upload-app -f /Users/Shared/Jenkins/Home/workspace/yourWorkspace-name/build/artifacts/yourIPA.ipa -u itunesconnectUserName -p itunesconnectPassword
-               
+           xcrun altool --upload-app -f /Users/nithinkumar/Desktop/NK/2020.05.07_1.ipa -t ios -u "rajendrarao" -p "Coolraja1978@1"
             }
         }
        
